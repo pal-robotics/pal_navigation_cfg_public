@@ -1,16 +1,9 @@
-# Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+# Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Unauthorized copying of this file, via any medium is strictly prohibited,
+# unless it was supplied under the terms of a license agreement or
+# nondisclosure agreement with PAL Robotics SL. In this case it may not be
+# copied or disclosed except in accordance with the terms of that agreement.
 
 import os
 import yaml
@@ -24,6 +17,7 @@ from launch.actions import (
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
+from launch.conditions import IfCondition, UnlessCondition
 from launch_ros.actions import SetRemap
 from launch_pal.param_utils import parse_parametric_yaml
 
@@ -65,6 +59,13 @@ def loc_and_nav(context, *args, **kwargs):
             "params_file": configured_params,
             "map": map_yaml_file,
         }.items(),
+        condition=UnlessCondition(LaunchConfiguration('slam'))
+    )
+
+    slam_toolbox_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([nav2_bringup_pkg, "/slam_launch.py"]),
+        launch_arguments={"params_file": configured_params}.items(),
+        condition=IfCondition(LaunchConfiguration('slam'))
     )
 
     cmd_vel_remap = SetRemap(src="cmd_vel", dst="nav_vel")
@@ -75,7 +76,7 @@ def loc_and_nav(context, *args, **kwargs):
         ),
         launch_arguments={"params_file": configured_params}.items(),
     )
-    return [localization_launch, cmd_vel_remap, nav2_bringup_launch]
+    return [localization_launch, slam_toolbox_launch, cmd_vel_remap, nav2_bringup_launch]
 
 
 def generate_launch_description():
@@ -83,6 +84,12 @@ def generate_launch_description():
         get_package_share_directory("nav2_bringup"), "launch"
     )
     pmb2_maps_dir = get_package_share_directory("pmb2_maps")
+
+    declare_slam_cmd = DeclareLaunchArgument(
+        "slam",
+        default_value="false",
+        description="Whether to start the SLAM or the Map Localization",
+    )
 
     declare_params_file_launch_arg = DeclareLaunchArgument(
         "params_file",
@@ -120,6 +127,7 @@ def generate_launch_description():
     # Create the launch description and populate
     ld = LaunchDescription()
 
+    ld.add_action(declare_slam_cmd)
     ld.add_action(declare_params_file_launch_arg)
     ld.add_action(declare_remappings_file_launch_arg)
     ld.add_action(declare_map_yaml_cmd)
