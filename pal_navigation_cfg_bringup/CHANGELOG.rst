@@ -2,8 +2,8 @@
 Changelog for package pal_navigation_cfg_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+3.0.1 (2023-04-04)
+------------------
 * Merge branch 'fix/unify-nav' into 'humble-devel'
   unify nav launch files
   See merge request navigation/pal_navigation_cfg_public!45
