@@ -2,6 +2,14 @@
 Changelog for package pal_navigation_cfg_params
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'license' into 'humble-devel'
+  Add license
+  See merge request navigation/pal_navigation_cfg_public!46
+* Update license
+* Contributors: Noel Jimenez, antoniobrandi
+
 3.0.1 (2023-04-04)
 ------------------
 * added default parameters and launch files
