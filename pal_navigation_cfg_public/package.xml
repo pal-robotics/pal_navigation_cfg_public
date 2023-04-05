@@ -4,7 +4,7 @@
   <version>3.0.1</version>
   <description>PAL Navigation Configuration metapackage</description>
   <maintainer email="antonio.brandi@pal-robotics.com">Antonio Brandi</maintainer>
-  <license>Proprietary</license>
+  <license>Apache License 2.0</license>
   <author email="antonio.brandi@pal-robotics.com">Antonio Brandi</author>
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
