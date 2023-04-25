@@ -2,6 +2,14 @@
 Changelog for package pal_navigation_cfg_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/missing_dependency' into 'humble-devel'
+  Add missing dependency nav2_bringup
+  See merge request navigation/pal_navigation_cfg_public!47
+* add missing dependency nav2_bringup
+* Contributors: Noel Jimenez, antoniobrandi
+
 3.0.2 (2023-04-05)
 ------------------
 * Merge branch 'license' into 'humble-devel'
