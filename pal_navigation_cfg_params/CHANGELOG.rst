@@ -2,8 +2,8 @@
 Changelog for package pal_navigation_cfg_params
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+3.0.4 (2023-05-02)
+------------------
 * Merge branch 'fix/add-odom-topic' into 'humble-devel'
   Add odom_topic to controller server node
   See merge request navigation/pal_navigation_cfg_public!48
