@@ -15,16 +15,5 @@ if(BUILD_TESTING)
 endif()
 
 ament_auto_package(INSTALL_TO_SHARE
-  bt_navigator
-  controller
-  global_costmap
-  local_costmap
-  map_server
-  localization
-  planner
-  recovery_behaviors
-  slam
-  trajectory_smoother
-  velocity_smoother
-  waypoint
+  params
 )
