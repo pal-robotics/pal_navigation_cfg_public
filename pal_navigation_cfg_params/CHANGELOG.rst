@@ -2,8 +2,8 @@
 Changelog for package pal_navigation_cfg_params
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+3.0.5 (2023-07-21)
+------------------
 * Remove pal flags dependency
 * compatibility with monitor
 * Contributors: Noel Jimenez, antoniobrandi
