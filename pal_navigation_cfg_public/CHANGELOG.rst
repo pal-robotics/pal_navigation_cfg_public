@@ -2,6 +2,9 @@
 Changelog for package pal_navigation_cfg
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.0.4 (2023-05-02)
 ------------------
 
