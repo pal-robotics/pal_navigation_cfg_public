@@ -2,6 +2,9 @@
 Changelog for package pal_navigation_cfg_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.0.5 (2023-07-21)
 ------------------
 * Fix license
